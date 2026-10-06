@@ -189,21 +189,26 @@ h1 .accent{color:var(--pink-soft)}
   font:10px/1 Arial,sans-serif;
   text-transform:uppercase;
   letter-spacing:.28em;
-  color:rgba(43,33,29,.48);
+  color:rgba(43,33,29,.45);
   margin-bottom:25px;
 }
 h2{
-  margin:0 0 35px;
+  margin:0 0 38px;
   color:#6d453c;
   font-family:"Amatic SC",cursive;
   font-size:clamp(3.8rem,6vw,6rem);
   line-height:.8;
 }
+.text{
+  max-width:780px;
+  margin:0 auto;
+  text-align:center;
+}
 .text p{
-  max-width:690px;
-  margin:0 0 22px;
+  max-width:720px;
+  margin:0 auto 24px;
   font-size:clamp(17px,1.55vw,21px);
-  line-height:1.75;
+  line-height:1.78;
 }
 .special{
   color:#633c37;
@@ -289,9 +294,7 @@ footer{
   h1{font-size:clamp(4.6rem,19vw,7rem)}
   .player{margin-top:36px}
   .paper{padding-left:6vw;padding-right:6vw}
-  .paper-inner{grid-template-columns:1fr}
-  .paper-watch{min-height:300px;order:-1}
-  .paper-watch img{width:min(60vw,280px)}
+  .paper-inner{display:block}
 }
 </style>
 </head>
@@ -332,7 +335,6 @@ footer{
       <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: <span class="special">я бежал за твоим запахом как в новый сентябрь</span>, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
       <p>Наверное, именно поэтому таким чувствам ещё рано давать имя. Пока они существуют где-то между «просто» и чем-то гораздо большим — там, где одно случайное мгновение уже способно изменить смысл всего, что было до него.</p>
     </article>
-    <div class="paper-watch"><img src="./watch.png" alt="Часы"></div>
   </div>
 </section>
 
