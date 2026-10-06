@@ -3,420 +3,375 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#211915">
+<meta name="theme-color" content="#151211">
 <title>новый сентябрь</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
 <style>
 :root{
-  --ink:#171716;
-  --deep:#2d2924;
-  --rose:#a98d7a;
-  --rust:#6b5544;
-  --paper:#c9c0b2;
-  --bone:#e6e1d8;
-  --muted:rgba(230,225,216,.68);
-  --line:rgba(230,225,216,.17);
+  --black:#141211;
+  --charcoal:#211d1b;
+  --pink:#b77b79;
+  --pink-soft:#c99591;
+  --wood:#755344;
+  --cream:#e9dfd0;
+  --paper:#d8cbb9;
+  --ink:#2b211d;
+  --white:#eee7dc;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  color:var(--bone);
-  background:var(--ink);
+  background:var(--black);
+  color:var(--white);
   font-family:"PT Serif",Georgia,serif;
-  -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 body:before{
   content:"";
-  position:fixed; inset:0; pointer-events:none; z-index:30;
-  opacity:.055;
-  mix-blend-mode:screen;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  position:fixed;inset:0;z-index:50;pointer-events:none;
+  opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .hero{
-  position:relative;
   min-height:100svh;
-  display:flex;
-  align-items:flex-end;
-  padding:7vh 7vw 7vh;
+  position:relative;
+  display:grid;
+  place-items:center;
   overflow:hidden;
   background:
-    linear-gradient(180deg,rgba(18,18,17,.08),rgba(18,18,17,.34) 45%,rgba(18,18,17,.94) 100%),
-    linear-gradient(112deg,#8f8175 0%,#756b60 20%,#6a5848 44%,#42382f 70%,#1d1d1b 100%);
+    radial-gradient(circle at 18% 20%,rgba(183,123,121,.26),transparent 28%),
+    radial-gradient(circle at 80% 88%,rgba(117,83,68,.22),transparent 30%),
+    linear-gradient(135deg,#171414 0%,#211b19 43%,#161413 100%);
 }
 .hero:before{
   content:"";
-  position:absolute; inset:-8%;
-  opacity:.48;
+  position:absolute;
+  width:75vw;height:120%;
+  left:-12vw;top:-10%;
   background:
-    repeating-linear-gradient(101deg,rgba(33,22,18,.12) 0 2px,transparent 2px 52px),
-    repeating-linear-gradient(7deg,transparent 0 72px,rgba(255,239,216,.035) 73px,transparent 75px);
-  mix-blend-mode:multiply;
-  transform:rotate(-2deg) scale(1.05);
+    linear-gradient(115deg,transparent 0 18%,rgba(183,123,121,.12) 19% 37%,transparent 38%),
+    linear-gradient(74deg,transparent 0 46%,rgba(117,83,68,.16) 47% 72%,transparent 73%);
+  transform:rotate(-7deg);
+  filter:blur(2px);
 }
 .hero:after{
   content:"";
   position:absolute;
   width:62vw;height:62vw;
-  max-width:800px;max-height:800px;
-  right:-18vw;top:-18vw;
+  right:-22vw;top:-18vw;
+  border:1px solid rgba(233,223,208,.09);
   border-radius:50%;
-  background:radial-gradient(circle,rgba(255,231,216,.13),transparent 65%);
-  filter:blur(12px);
+  box-shadow:0 0 0 90px rgba(233,223,208,.018),0 0 0 180px rgba(233,223,208,.012);
 }
 .hero-inner{
-  position:relative;
-  z-index:2;
-  width:min(1050px,100%);
-  margin:0 auto;
-}
-.meta{
-  margin:0 0 1.6rem;
-  font-size:.72rem;
-  letter-spacing:.22em;
-  color:rgba(240,232,216,.72);
-  text-transform:uppercase;
-}
-.headline{
-  margin:0;
-  max-width:850px;
-  font-family:"Amatic SC",cursive;
-  font-size:clamp(4rem,10vw,8.5rem);
-  line-height:.86;
-  font-weight:700;
-  letter-spacing:.01em;
-  text-shadow:0 3px 24px rgba(0,0,0,.28);
-}
-.headline em{
-  color:#b49b88;
-  font-style:normal;
-}
-.music{
-  margin-top:2.5rem;
-  width:min(520px,100%);
+  position:relative;z-index:2;
+  width:min(1080px,88vw);
   display:grid;
-  grid-template-columns:46px 1fr;
-  gap:15px;
+  grid-template-columns:1fr auto;
+  gap:5vw;
   align-items:center;
 }
-.play{
-  width:46px;height:46px;border-radius:50%;
-  border:1px solid rgba(240,232,216,.52);
-  background:rgba(230,225,216,.045);
-  color:var(--bone);
-  display:grid;place-items:center;
-  cursor:pointer;
-  transition:.2s ease;
-}
-.play:hover{background:rgba(230,225,216,.10);transform:translateY(-1px)}
-.track{
-  font-size:.76rem;
-  letter-spacing:.06em;
-  color:rgba(240,232,216,.78);
-  margin-bottom:.55rem;
-}
-.bar{
-  height:3px;
-  border-radius:3px;
-  background:rgba(240,232,216,.23);
-  overflow:hidden;
-  cursor:pointer;
-}
-.fill{
-  height:100%;width:0;
-  background:var(--rose);
-}
-.times{
-  display:flex;
-  justify-content:space-between;
-  margin-top:.38rem;
-  color:rgba(240,232,216,.48);
-  font:11px/1 Arial,sans-serif;
-  font-variant-numeric:tabular-nums;
-}
-.info-strip{
-  padding:15px 7vw;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  background:#2d2925;
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  color:rgba(240,232,216,.62);
-  font:11px/1.2 Arial,sans-serif;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.info-strip span:not(:last-child):after{
-  content:"·";
-  margin-left:20px;
-  color:rgba(240,232,216,.3);
-}
-.diary{
-  position:relative;
-  color:var(--ink);
-  background:
-    radial-gradient(circle at 82% 12%,rgba(255,255,255,.24),transparent 34%),
-    linear-gradient(115deg,#c8c0b4,#b8aea0);
-  padding:clamp(80px,11vw,145px) 7vw;
-  overflow:hidden;
-}
-.diary:before{
-  content:"";
-  position:absolute;inset:0;
-  opacity:.14;
-  background:repeating-linear-gradient(96deg,transparent 0 44px,rgba(88,65,45,.09) 45px,transparent 47px);
-}
-.diary-inner{
-  position:relative;
-  width:min(1080px,100%);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
-  gap:clamp(45px,8vw,110px);
-  align-items:center;
-}
-.diary-title{
-  margin:0 0 28px;
-  color:#5f4e40;
-  font-family:"Amatic SC",cursive;
-  font-size:clamp(3rem,6vw,5rem);
-  line-height:.9;
-  font-weight:700;
-}
-.text p{
-  margin:0 0 22px;
-  max-width:650px;
-  color:#302b27;
-  font-size:clamp(17px,1.6vw,21px);
-  line-height:1.78;
-}
-.text p:last-child{margin-bottom:0}
-.clock{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:430px;
-  position:relative;
-  isolation:isolate;
-}
-.clock:before{
-  content:"";
-  position:absolute;
-  width:310px;
-  height:390px;
-  max-width:90%;
-  border-radius:48% 52% 44% 56%;
-  background:linear-gradient(145deg,rgba(77,63,51,.11),rgba(230,223,211,.08));
-  transform:rotate(7deg);
-  filter:blur(13px);
-  z-index:-1;
-}
-.clock img{
-  position:relative;
-  z-index:1;
-  width:min(100%,300px);
-  height:auto;
-  opacity:.82;
-  filter:
-    sepia(.23)
-    saturate(.58)
-    contrast(.84)
-    brightness(.94)
-    drop-shadow(0 15px 15px rgba(42,36,31,.13));
-  mix-blend-mode:multiply;
-}
-.bottom{
-  background:#55463a;
-  color:var(--bone);
-  text-align:center;
-  padding:clamp(70px,9vw,110px) 7vw;
-  position:relative;
-  overflow:hidden;
-}
-.bottom:before{
-  content:"";
-  position:absolute;inset:0;
-  background:repeating-linear-gradient(113deg,rgba(0,0,0,.07) 0 2px,transparent 2px 42px);
-  mix-blend-mode:multiply;
-}
-.bottom-inner{position:relative;z-index:1}
-.bottom .artist{
-  font-family:"Amatic SC",cursive;
-  font-size:clamp(3rem,7vw,5.5rem);
-  line-height:.9;
-  font-weight:700;
-}
-.bottom .dolor{
-  margin-top:13px;
+.copy{max-width:700px}
+.kicker{
+  margin:0 0 24px;
   font:11px/1 Arial,sans-serif;
   letter-spacing:.3em;
   text-transform:uppercase;
-  opacity:.68;
+  color:rgba(238,231,220,.52);
 }
-.bottom .year{
-  margin-top:28px;
-  font:12px/1 Arial,sans-serif;
-  letter-spacing:.2em;
-  opacity:.52;
+h1{
+  margin:0;
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(5rem,11vw,10rem);
+  line-height:.77;
+  font-weight:700;
+  letter-spacing:.01em;
 }
-footer{
-  background:var(--ink);
-  padding:32px 7vw 42px;
-  text-align:center;
-  color:rgba(240,232,216,.34);
-  font:10px/1 Arial,sans-serif;
-  letter-spacing:.18em;
-  text-transform:uppercase;
+h1 .accent{color:var(--pink-soft)}
+.subtitle{
+  margin:30px 0 0;
+  max-width:500px;
+  color:rgba(238,231,220,.58);
+  font-size:15px;
+  line-height:1.7;
 }
-
-.special-phrase{
+.watch-wrap{
+  width:min(31vw,330px);
+  min-width:210px;
   position:relative;
-  display:inline;
-  color:#55443a;
-  font-style:italic;
-  text-decoration:underline;
-  text-decoration-color:rgba(92,69,54,.46);
-  text-decoration-thickness:1px;
-  text-underline-offset:5px;
-  text-decoration-skip-ink:auto;
-  padding:0 .08em;
+  display:grid;
+  place-items:center;
 }
-.special-phrase:after{
+.watch-wrap:before{
   content:"";
   position:absolute;
-  left:1%;
-  right:-1%;
-  bottom:-3px;
-  height:7px;
-  background:rgba(154,126,104,.17);
+  inset:12%;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(183,123,121,.10),rgba(117,83,68,.06) 45%,transparent 70%);
+  filter:blur(28px);
+}
+.watch{
+  position:relative;
+  width:100%;
+  display:block;
+  opacity:.9;
+  filter:drop-shadow(0 25px 30px rgba(0,0,0,.32)) saturate(.88);
+  transform:rotate(1.5deg);
+}
+.player{
+  margin-top:48px;
+  width:min(520px,100%);
+  border-top:1px solid rgba(238,231,220,.16);
+  padding-top:16px;
+}
+.player-top{
+  display:flex;align-items:center;gap:14px;
+}
+.play{
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid rgba(238,231,220,.35);
+  background:transparent;color:var(--white);
+  cursor:pointer;display:grid;place-items:center;
+}
+.play:hover{background:rgba(238,231,220,.08)}
+.track{
+  font-size:12px;
+  color:rgba(238,231,220,.62);
+  letter-spacing:.04em;
+}
+.bar{
+  margin-top:13px;height:3px;
+  background:rgba(238,231,220,.16);
+  cursor:pointer;
+}
+.fill{height:100%;width:0;background:var(--pink)}
+.times{
+  margin-top:6px;
+  display:flex;justify-content:space-between;
+  font:10px/1 Arial,sans-serif;color:rgba(238,231,220,.35);
+}
+.divider{
+  height:1px;
+  background:rgba(238,231,220,.12);
+}
+.paper{
+  position:relative;
+  padding:clamp(90px,12vw,155px) 7vw 120px;
+  background:
+    radial-gradient(circle at 10% 8%,rgba(183,123,121,.12),transparent 24%),
+    radial-gradient(circle at 90% 80%,rgba(117,83,68,.12),transparent 30%),
+    linear-gradient(135deg,#d8cbb9,#cdbba6);
+  color:var(--ink);
+  overflow:hidden;
+}
+.paper:before{
+  content:"";
+  position:absolute;
+  left:-10%;right:-10%;top:42%;
+  height:35%;
+  background:rgba(117,83,68,.055);
+  transform:rotate(-3deg);
+  filter:blur(25px);
+}
+.paper-inner{
+  width:min(1050px,100%);
+  margin:auto;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:clamp(50px,8vw,110px);
+  align-items:center;
+}
+.section-label{
+  font:10px/1 Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.28em;
+  color:rgba(43,33,29,.48);
+  margin-bottom:25px;
+}
+h2{
+  margin:0 0 35px;
+  color:#6d453c;
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(3.8rem,6vw,6rem);
+  line-height:.8;
+}
+.text p{
+  max-width:690px;
+  margin:0 0 22px;
+  font-size:clamp(17px,1.55vw,21px);
+  line-height:1.75;
+}
+.special{
+  color:#633c37;
+  font-style:italic;
+  position:relative;
+  white-space:normal;
+}
+.special:after{
+  content:"";
+  position:absolute;
+  left:-2px;right:-3px;bottom:-2px;
+  height:8px;
+  background:rgba(183,123,121,.22);
   border-radius:50%;
   transform:rotate(-1deg);
   z-index:-1;
 }
-
-@media(max-width:760px){
-  .hero{padding:8vh 6vw 7vh}
-  .headline{font-size:clamp(3.6rem,16vw,6rem)}
-  .info-strip{padding:14px 6vw;gap:10px}
-  .info-strip span:not(:last-child):after{margin-left:10px}
-  .diary{padding:80px 6vw}
-  .diary-inner{grid-template-columns:1fr}
-  .clock{min-height:300px;order:-1}
-  .clock img{width:min(62vw,300px)}
-  .bottom{padding:70px 6vw}
+.paper-watch{
+  position:relative;
+  min-height:430px;
+  display:grid;
+  place-items:center;
 }
-@media(max-width:470px){
-  .meta{font-size:.64rem}
-  .headline{font-size:clamp(3.4rem,18vw,5rem)}
-  .text p{font-size:17px;line-height:1.72}
-  .clock{min-height:260px}
+.paper-watch:before{
+  content:"";
+  position:absolute;
+  width:340px;height:440px;
+  max-width:95%;
+  background:
+    radial-gradient(ellipse at center,rgba(43,33,29,.10),transparent 68%);
+  filter:blur(14px);
 }
-@media(prefers-reduced-motion:no-preference){
-  .hero-inner{animation:rise .9s ease both}
-  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.paper-watch img{
+  position:relative;
+  width:min(100%,315px);
+  opacity:.88;
+  filter:sepia(.12) saturate(.76) contrast(.92) drop-shadow(0 18px 18px rgba(43,33,29,.18));
+  mix-blend-mode:multiply;
+}
+.after{
+  background:#181514;
+  color:var(--white);
+  padding:85px 7vw 95px;
+  text-align:center;
+}
+.after-title{
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(4rem,8vw,7rem);
+  line-height:.8;
+  margin:0;
+}
+.after-title span{color:var(--pink-soft)}
+.after-meta{
+  margin-top:24px;
+  font:10px/1 Arial,sans-serif;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:rgba(238,231,220,.38);
+}
+footer{
+  background:#11100f;
+  color:rgba(238,231,220,.25);
+  padding:28px 7vw 36px;
+  text-align:center;
+  font:9px/1 Arial,sans-serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+@media(max-width:800px){
+  .hero{padding:70px 0 65px;min-height:auto}
+  .hero-inner{
+    width:88vw;
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+  .watch-wrap{
+    width:min(65vw,300px);
+    min-width:0;
+    justify-self:center;
+    grid-row:1;
+  }
+  .copy{grid-row:2}
+  h1{font-size:clamp(4.6rem,19vw,7rem)}
+  .player{margin-top:36px}
+  .paper{padding-left:6vw;padding-right:6vw}
+  .paper-inner{grid-template-columns:1fr}
+  .paper-watch{min-height:300px;order:-1}
+  .paper-watch img{width:min(60vw,280px)}
 }
 </style>
 </head>
 <body>
-
 <section class="hero">
   <div class="hero-inner">
-    <p class="meta">PHARAOH — Беги от меня</p>
-    <h1 class="headline">я бежал за твоим<br>запахом, как <em>в новый<br>сентябрь</em></h1>
-
-    <div class="music">
-      <button class="play" id="play" type="button" aria-label="Включить музыку">
-        <svg id="playIcon" width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.8v12.4c0 .8.9 1.3 1.6.9l10-6.2c.7-.4.7-1.4 0-1.8l-10-6.2C3.9.5 3 1 3 1.8Z"/></svg>
-        <svg id="pauseIcon" width="15" height="15" viewBox="0 0 16 16" fill="currentColor" style="display:none"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
-      </button>
-      <div>
-        <div class="track">PHARAOH — Беги от меня</div>
+    <div class="copy">
+      <p class="kicker">PHARAOH / DOLOR / 2015</p>
+      <h1>я бежал за твоим<br>запахом как <span class="accent">в новый<br>сентябрь</span></h1>
+      <p class="subtitle">Некоторые вещи становятся важными раньше, чем для них находятся правильные слова.</p>
+      <div class="player">
+        <div class="player-top">
+          <button class="play" id="play" aria-label="Включить музыку">
+            <svg id="playIcon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.8v12.4c0 .8.9 1.3 1.6.9l10-6.2c.7-.4.7-1.4 0-1.8l-10-6.2C3.9.5 3 1 3 1.8Z"/></svg>
+            <svg id="pauseIcon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" style="display:none"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
+          </button>
+          <div class="track">Беги от меня</div>
+        </div>
         <div class="bar" id="bar"><div class="fill" id="fill"></div></div>
         <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<div class="info-strip">
-  <span>PHARAOH</span><span>DOLOR</span><span>Беги от меня</span><span>2015</span>
-</div>
-
-<section class="diary">
-  <div class="diary-inner">
-    <article class="text">
-      <h2 class="diary-title">Чувства, которым<br>ещё не даны имена</h2>
-      <p>Иногда всё меняется настолько тихо, что невозможно назвать тот самый момент, когда что-то перестаёт быть прежним. Вчера человек просто существует где-то рядом с твоей жизнью, а сегодня его отсутствие уже ощущается странно пустым.</p>
-      <p>Некоторые чувства и вовсе не приходят словами. Они появляются в мелочах: в слишком долгом взгляде, в случайно сохранённой интонации, в желании задержать мгновение ещё хотя бы на несколько секунд.</p>
-      <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: <span class="special-phrase">я бежал за твоим запахом как в новый сентябрь</span>, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
-      <p>Наверное, именно поэтому таким чувствам ещё рано давать имя. Пока они существуют где-то между «просто» и чем-то гораздо большим — там, где одно случайное мгновение уже способно изменить смысл всего, что было до него.</p>
-    </article>
-
-    <div class="clock">
-      <img src="./watch.png" alt="Часы">
+    <div class="watch-wrap">
+      <img class="watch" src="./watch.png" alt="Часы">
     </div>
   </div>
 </section>
 
-<section class="bottom">
-  <div class="bottom-inner">
-    <div class="artist">PHARAOH</div>
-    <div class="dolor">DOLOR</div>
-    <div class="year">2015</div>
+<div class="divider"></div>
+
+<section class="paper">
+  <div class="paper-inner">
+    <article class="text">
+      <div class="section-label">о чувствах, которым ещё не даны имена</div>
+      <h2>Чувства, которым<br>ещё не даны имена</h2>
+      <p>Иногда всё меняется настолько тихо, что невозможно назвать тот самый момент, когда что-то перестаёт быть прежним. Вчера человек просто существует где-то рядом с твоей жизнью, а сегодня его отсутствие уже ощущается странно пустым.</p>
+      <p>Некоторые чувства и вовсе не приходят словами. Они появляются в мелочах: в слишком долгом взгляде, в случайно сохранённой интонации, в желании задержать мгновение ещё хотя бы на несколько секунд.</p>
+      <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: <span class="special">я бежал за твоим запахом как в новый сентябрь</span>, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
+      <p>Наверное, именно поэтому таким чувствам ещё рано давать имя. Пока они существуют где-то между «просто» и чем-то гораздо большим — там, где одно случайное мгновение уже способно изменить смысл всего, что было до него.</p>
+    </article>
+    <div class="paper-watch"><img src="./watch.png" alt="Часы"></div>
   </div>
 </section>
 
-<footer>Беги от меня</footer>
+<section class="after">
+  <h3 class="after-title">новый <span>сентябрь</span></h3>
+  <div class="after-meta">PHARAOH · DOLOR · Беги от меня · 2015</div>
+</section>
+
+<footer>беги от меня</footer>
 
 <audio id="audio" preload="metadata" src="./music.mp3"></audio>
-
 <script>
-const audio = document.getElementById('audio');
-const play = document.getElementById('play');
-const playIcon = document.getElementById('playIcon');
-const pauseIcon = document.getElementById('pauseIcon');
-const bar = document.getElementById('bar');
-const fill = document.getElementById('fill');
-const cur = document.getElementById('cur');
-const dur = document.getElementById('dur');
-
-const format = s => {
-  if (!Number.isFinite(s)) return '0:00';
-  const m = Math.floor(s/60);
-  const sec = Math.floor(s%60).toString().padStart(2,'0');
-  return `${m}:${sec}`;
-};
-
+const audio=document.getElementById('audio');
+const play=document.getElementById('play');
+const playIcon=document.getElementById('playIcon');
+const pauseIcon=document.getElementById('pauseIcon');
+const bar=document.getElementById('bar');
+const fill=document.getElementById('fill');
+const cur=document.getElementById('cur');
+const dur=document.getElementById('dur');
+const fmt=s=>Number.isFinite(s)?`${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`:'0:00';
 function render(){
-  cur.textContent = format(audio.currentTime);
-  dur.textContent = format(audio.duration);
-  fill.style.width = audio.duration ? `${(audio.currentTime/audio.duration)*100}%` : '0%';
+  cur.textContent=fmt(audio.currentTime);
+  dur.textContent=fmt(audio.duration);
+  fill.style.width=audio.duration?`${audio.currentTime/audio.duration*100}%`:'0%';
 }
-
-play.addEventListener('click', async () => {
-  if(audio.paused){
-    try{ await audio.play(); }
-    catch(e){ console.error('Не удалось воспроизвести music.mp3', e); }
-  }else{
-    audio.pause();
-  }
-});
-audio.addEventListener('play',()=>{playIcon.style.display='none';pauseIcon.style.display='block';});
-audio.addEventListener('pause',()=>{playIcon.style.display='block';pauseIcon.style.display='none';});
-audio.addEventListener('loadedmetadata',render);
-audio.addEventListener('timeupdate',render);
-audio.addEventListener('ended',()=>{playIcon.style.display='block';pauseIcon.style.display='none';});
-bar.addEventListener('click', e => {
-  if(!audio.duration) return;
+play.onclick=async()=>{
+  if(audio.paused){try{await audio.play()}catch(e){console.error(e)}}else audio.pause();
+};
+audio.onplay=()=>{playIcon.style.display='none';pauseIcon.style.display='block'};
+audio.onpause=()=>{playIcon.style.display='block';pauseIcon.style.display='none'};
+audio.onloadedmetadata=render;
+audio.ontimeupdate=render;
+audio.onended=()=>{playIcon.style.display='block';pauseIcon.style.display='none'};
+bar.onclick=e=>{
+  if(!audio.duration)return;
   const r=bar.getBoundingClientRect();
-  audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration;
-});
+  audio.currentTime=(e.clientX-r.left)/r.width*audio.duration;
+};
 </script>
 </body>
 </html>
