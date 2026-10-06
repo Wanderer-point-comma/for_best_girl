@@ -2,417 +2,372 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#171512">
-<title>Сентябрь</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#211915">
+<title>новый сентябрь</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --ink:#eee9e1;
-    --muted:#aaa39a;
-    --paper:#d7cec2;
-    --black:#11100f;
-    --brown:#4a3930;
-    --wine:#5c2024;
-    --line:rgba(238,233,225,.17);
-  }
-
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    min-height:100vh;
-    color:var(--ink);
-    background:
-      radial-gradient(70% 55% at 76% 14%, rgba(112,42,43,.30), transparent 62%),
-      radial-gradient(55% 70% at 8% 80%, rgba(93,68,49,.26), transparent 66%),
-      linear-gradient(125deg,#11100f 0%,#1b1816 48%,#28201b 100%);
-    font-family: Georgia, "Times New Roman", serif;
-    overflow-x:hidden;
-  }
-
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.16;
-    background:
-      repeating-linear-gradient(92deg, transparent 0 5px, rgba(255,255,255,.045) 6px, transparent 7px 12px),
-      repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,.16) 0 1px, transparent 1px 4px);
-    mix-blend-mode:soft-light;
-    z-index:10;
-  }
-
-  main{
-    width:min(1180px, calc(100% - 48px));
-    margin:0 auto;
-    padding:58px 0 44px;
-  }
-
-  .topline{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--line);
-    font-family:Arial, sans-serif;
-    font-size:11px;
-    letter-spacing:.28em;
-    text-transform:uppercase;
-    color:#c5beb5;
-  }
-
-  .year{color:#e9dfd5}
-  .mark{
-    width:8px;height:8px;border-radius:50%;
-    background:#9b4545;
-    box-shadow:0 0 18px rgba(155,69,69,.55);
-  }
-
-  .story{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(300px,430px);
-    gap:clamp(42px,7vw,96px);
-    align-items:center;
-    min-height:610px;
-    padding:64px 0 70px;
-  }
-
-  .copy{
-    max-width:720px;
-  }
-
-  .copy h1{
-    margin:0 0 34px;
-    max-width:680px;
-    font-size:clamp(40px,5.2vw,76px);
-    line-height:.96;
-    font-weight:400;
-    letter-spacing:-.045em;
-    color:#f1ebe3;
-  }
-
-  .copy p{
-    margin:0 0 22px;
-    max-width:690px;
-    font-size:clamp(18px,1.65vw,23px);
-    line-height:1.62;
-    color:#d8d0c7;
-  }
-
-  .copy p:last-child{margin-bottom:0}
-  .accent{
-    color:#f0e8df;
-    text-decoration:underline;
-    text-decoration-color:rgba(155,69,69,.7);
-    text-decoration-thickness:1px;
-    text-underline-offset:6px;
-  }
-
-  .watch-stage{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:560px;
-  }
-
-  .watch-stage::before{
-    content:"";
-    position:absolute;
-    width:84%;
-    aspect-ratio:1;
-    border-radius:50%;
-    background:
-      radial-gradient(circle, rgba(126,82,63,.20), rgba(90,32,36,.10) 42%, transparent 70%);
-    filter:blur(22px);
-  }
-
-  .watch{
-    position:relative;
-    z-index:1;
-    width:min(100%,390px);
-    height:auto;
-    filter:
-      drop-shadow(0 30px 26px rgba(0,0,0,.55))
-      drop-shadow(0 5px 8px rgba(0,0,0,.45));
-  }
-
-  .music{
-    border-top:1px solid var(--line);
-    padding-top:28px;
-    display:grid;
-    grid-template-columns:1fr minmax(360px,620px);
-    gap:48px;
-    align-items:end;
-  }
-
-  .credits{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:baseline;
-    gap:12px 22px;
-  }
-
-  .artist{
-    font-family:Arial, sans-serif;
-    font-size:clamp(22px,2.3vw,34px);
-    font-weight:700;
-    letter-spacing:.08em;
-  }
-
-  .producer{
-    font-family:Arial, sans-serif;
-    font-size:12px;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:#aaa39a;
-  }
-
-  .track{
-    margin-top:10px;
-    font-size:clamp(24px,2.4vw,36px);
-    line-height:1;
-    color:#eee8df;
-  }
-
-  .player{
-    width:100%;
-    padding:18px 0 2px;
-  }
-
-  .controls{
-    display:grid;
-    grid-template-columns:48px 1fr auto;
-    gap:14px;
-    align-items:center;
-  }
-
-  button{
-    border:1px solid rgba(238,233,225,.34);
-    background:rgba(17,16,15,.46);
-    color:#eee9e1;
-    cursor:pointer;
-    transition:.2s ease;
-  }
-
-  button:hover{
-    background:rgba(155,69,69,.22);
-    border-color:rgba(238,233,225,.62);
-  }
-
-  .play{
-    width:48px;height:48px;border-radius:50%;
-    display:grid;place-items:center;
-    font-size:18px;
-  }
-
-  .seek-wrap{
-    display:flex;
-    align-items:center;
-    gap:12px;
-  }
-
-  input[type="range"]{
-    appearance:none;
-    width:100%;
-    height:2px;
-    background:rgba(238,233,225,.24);
-    cursor:pointer;
-    accent-color:#b35b5d;
-  }
-
-  input[type="range"]::-webkit-slider-thumb{
-    appearance:none;
-    width:12px;height:12px;border-radius:50%;
-    background:#eee9e1;
-    border:0;
-  }
-
-  input[type="range"]::-moz-range-thumb{
-    width:12px;height:12px;border-radius:50%;
-    background:#eee9e1;
-    border:0;
-  }
-
-  .time{
-    min-width:92px;
-    text-align:right;
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    letter-spacing:.08em;
-    color:#aaa39a;
-  }
-
-  .volume{
-    margin-top:14px;
-    display:flex;
-    justify-content:flex-end;
-    align-items:center;
-    gap:9px;
-  }
-
-  .volume span{
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    color:#8f8982;
-  }
-
-  .volume input{max-width:130px}
-
-  footer{
-    padding-top:34px;
-    font-family:Arial,sans-serif;
-    font-size:10px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:#6f6963;
-  }
-
-  @media (max-width:820px){
-    main{width:min(100% - 30px,680px);padding-top:28px}
-    .story{
-      grid-template-columns:1fr;
-      gap:20px;
-      min-height:auto;
-      padding:48px 0 52px;
-    }
-    .watch-stage{
-      order:-1;
-      min-height:390px;
-    }
-    .watch{width:min(72vw,340px)}
-    .music{
-      grid-template-columns:1fr;
-      gap:28px;
-    }
-  }
-
-  @media (max-width:520px){
-    .topline{letter-spacing:.18em}
-    .copy h1{font-size:40px;margin-bottom:25px}
-    .copy p{font-size:18px;line-height:1.58}
-    .watch-stage{min-height:330px}
-    .controls{grid-template-columns:48px 1fr}
-    .time{grid-column:2;text-align:left;margin-top:-5px}
-    .volume{justify-content:flex-start}
-  }
+:root{
+  --ink:#201916;
+  --deep:#2d201b;
+  --rose:#bd7b73;
+  --rust:#8b4438;
+  --paper:#e9e1d0;
+  --bone:#f0e8d8;
+  --muted:rgba(240,232,216,.68);
+  --line:rgba(240,232,216,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--bone);
+  background:var(--ink);
+  font-family:"PT Serif",Georgia,serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; z-index:30;
+  opacity:.055;
+  mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:flex-end;
+  padding:7vh 7vw 7vh;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(24,17,14,.10),rgba(24,17,14,.35) 45%,rgba(24,17,14,.88) 100%),
+    linear-gradient(112deg,#bf8077 0%,#ad7069 21%,#795038 47%,#493326 71%,#241b18 100%);
+}
+.hero:before{
+  content:"";
+  position:absolute; inset:-8%;
+  opacity:.48;
+  background:
+    repeating-linear-gradient(101deg,rgba(33,22,18,.12) 0 2px,transparent 2px 52px),
+    repeating-linear-gradient(7deg,transparent 0 72px,rgba(255,239,216,.035) 73px,transparent 75px);
+  mix-blend-mode:multiply;
+  transform:rotate(-2deg) scale(1.05);
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:62vw;height:62vw;
+  max-width:800px;max-height:800px;
+  right:-18vw;top:-18vw;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,231,216,.13),transparent 65%);
+  filter:blur(12px);
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1050px,100%);
+  margin:0 auto;
+}
+.meta{
+  margin:0 0 1.6rem;
+  font-size:.72rem;
+  letter-spacing:.22em;
+  color:rgba(240,232,216,.72);
+  text-transform:uppercase;
+}
+.headline{
+  margin:0;
+  max-width:850px;
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(4rem,10vw,8.5rem);
+  line-height:.86;
+  font-weight:700;
+  letter-spacing:.01em;
+  text-shadow:0 3px 24px rgba(0,0,0,.28);
+}
+.headline em{
+  color:#dca097;
+  font-style:normal;
+}
+.music{
+  margin-top:2.5rem;
+  width:min(520px,100%);
+  display:grid;
+  grid-template-columns:46px 1fr;
+  gap:15px;
+  align-items:center;
+}
+.play{
+  width:46px;height:46px;border-radius:50%;
+  border:1px solid rgba(240,232,216,.52);
+  background:rgba(240,232,216,.055);
+  color:var(--bone);
+  display:grid;place-items:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.play:hover{background:rgba(240,232,216,.14);transform:translateY(-1px)}
+.track{
+  font-size:.76rem;
+  letter-spacing:.06em;
+  color:rgba(240,232,216,.78);
+  margin-bottom:.55rem;
+}
+.bar{
+  height:3px;
+  border-radius:3px;
+  background:rgba(240,232,216,.23);
+  overflow:hidden;
+  cursor:pointer;
+}
+.fill{
+  height:100%;width:0;
+  background:var(--rose);
+}
+.times{
+  display:flex;
+  justify-content:space-between;
+  margin-top:.38rem;
+  color:rgba(240,232,216,.48);
+  font:11px/1 Arial,sans-serif;
+  font-variant-numeric:tabular-nums;
+}
+.info-strip{
+  padding:15px 7vw;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  background:#34251f;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:rgba(240,232,216,.62);
+  font:11px/1.2 Arial,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.info-strip span:not(:last-child):after{
+  content:"·";
+  margin-left:20px;
+  color:rgba(240,232,216,.3);
+}
+.diary{
+  position:relative;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 80% 12%,rgba(255,255,255,.45),transparent 35%),
+    linear-gradient(115deg,#e8e0cf,#ddd2bd);
+  padding:clamp(80px,11vw,145px) 7vw;
+  overflow:hidden;
+}
+.diary:before{
+  content:"";
+  position:absolute;inset:0;
+  opacity:.14;
+  background:repeating-linear-gradient(96deg,transparent 0 44px,rgba(88,65,45,.09) 45px,transparent 47px);
+}
+.diary-inner{
+  position:relative;
+  width:min(1080px,100%);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:clamp(45px,8vw,110px);
+  align-items:center;
+}
+.diary-title{
+  margin:0 0 28px;
+  color:var(--rust);
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(3rem,6vw,5rem);
+  line-height:.9;
+  font-weight:700;
+}
+.text p{
+  margin:0 0 22px;
+  max-width:650px;
+  color:#3a2d25;
+  font-size:clamp(17px,1.6vw,21px);
+  line-height:1.78;
+}
+.text p:last-child{margin-bottom:0}
+.clock{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:430px;
+}
+.clock img{
+  width:min(100%,360px);
+  height:auto;
+  filter:drop-shadow(0 22px 22px rgba(52,37,29,.25));
+}
+.bottom{
+  background:var(--rust);
+  color:var(--bone);
+  text-align:center;
+  padding:clamp(70px,9vw,110px) 7vw;
+  position:relative;
+  overflow:hidden;
+}
+.bottom:before{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(113deg,rgba(0,0,0,.07) 0 2px,transparent 2px 42px);
+  mix-blend-mode:multiply;
+}
+.bottom-inner{position:relative;z-index:1}
+.bottom .artist{
+  font-family:"Amatic SC",cursive;
+  font-size:clamp(3rem,7vw,5.5rem);
+  line-height:.9;
+  font-weight:700;
+}
+.bottom .dolor{
+  margin-top:13px;
+  font:11px/1 Arial,sans-serif;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  opacity:.68;
+}
+.bottom .year{
+  margin-top:28px;
+  font:12px/1 Arial,sans-serif;
+  letter-spacing:.2em;
+  opacity:.52;
+}
+footer{
+  background:var(--ink);
+  padding:32px 7vw 42px;
+  text-align:center;
+  color:rgba(240,232,216,.34);
+  font:10px/1 Arial,sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+@media(max-width:760px){
+  .hero{padding:8vh 6vw 7vh}
+  .headline{font-size:clamp(3.6rem,16vw,6rem)}
+  .info-strip{padding:14px 6vw;gap:10px}
+  .info-strip span:not(:last-child):after{margin-left:10px}
+  .diary{padding:80px 6vw}
+  .diary-inner{grid-template-columns:1fr}
+  .clock{min-height:300px;order:-1}
+  .clock img{width:min(62vw,300px)}
+  .bottom{padding:70px 6vw}
+}
+@media(max-width:470px){
+  .meta{font-size:.64rem}
+  .headline{font-size:clamp(3.4rem,18vw,5rem)}
+  .text p{font-size:17px;line-height:1.72}
+  .clock{min-height:260px}
+}
+@media(prefers-reduced-motion:no-preference){
+  .hero-inner{animation:rise .9s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
 </style>
 </head>
 <body>
-<main>
-  <div class="topline">
-    <span class="year">2015</span>
-    <span class="mark" aria-hidden="true"></span>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="meta">PHARAOH — Беги от меня</p>
+    <h1 class="headline">я бежал за твоим<br>запахом, как <em>в новый<br>сентябрь</em></h1>
+
+    <div class="music">
+      <button class="play" id="play" type="button" aria-label="Включить музыку">
+        <svg id="playIcon" width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1.8v12.4c0 .8.9 1.3 1.6.9l10-6.2c.7-.4.7-1.4 0-1.8l-10-6.2C3.9.5 3 1 3 1.8Z"/></svg>
+        <svg id="pauseIcon" width="15" height="15" viewBox="0 0 16 16" fill="currentColor" style="display:none"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
+      </button>
+      <div>
+        <div class="track">PHARAOH — Беги от меня</div>
+        <div class="bar" id="bar"><div class="fill" id="fill"></div></div>
+        <div class="times"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <section class="story" aria-label="Текст">
-    <article class="copy">
-      <h1>Чувства, которым ещё не даны имена</h1>
+<div class="info-strip">
+  <span>PHARAOH</span><span>DOLOR</span><span>Беги от меня</span><span>2015</span>
+</div>
 
+<section class="diary">
+  <div class="diary-inner">
+    <article class="text">
+      <h2 class="diary-title">Чувства, которым<br>ещё не даны имена</h2>
       <p>Иногда всё меняется настолько тихо, что невозможно назвать тот самый момент, когда что-то перестаёт быть прежним. Вчера человек просто существует где-то рядом с твоей жизнью, а сегодня его отсутствие уже ощущается странно пустым.</p>
-
       <p>Некоторые чувства и вовсе не приходят словами. Они появляются в мелочах: в слишком долгом взгляде, в случайно сохранённой интонации, в желании задержать мгновение ещё хотя бы на несколько секунд.</p>
-
-      <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: <span class="accent">я бежал за твоим запахом как в новый сентябрь</span>, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
-
+      <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: я бежал за твоим запахом как в новый сентябрь, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
       <p>Наверное, именно поэтому таким чувствам ещё рано давать имя. Пока они существуют где-то между «просто» и чем-то гораздо большим — там, где одно случайное мгновение уже способно изменить смысл всего, что было до него.</p>
     </article>
 
-    <div class="watch-stage">
-      <img class="watch" src="./watch.png" alt="Часы">
+    <div class="clock">
+      <img src="./watch.png" alt="Часы">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="music" aria-label="Музыка">
-    <div class="credits">
-      <div>
-        <div class="artist">PHARAOH</div>
-        <div class="track">Беги от меня</div>
-      </div>
-      <div class="producer">DOLOR</div>
-    </div>
+<section class="bottom">
+  <div class="bottom-inner">
+    <div class="artist">PHARAOH</div>
+    <div class="dolor">DOLOR</div>
+    <div class="year">2015</div>
+  </div>
+</section>
 
-    <div class="player">
-      <audio id="audio" preload="metadata" src="./music.mp3"></audio>
+<footer>Беги от меня</footer>
 
-      <div class="controls">
-        <button id="play" class="play" type="button" aria-label="Включить или поставить на паузу">▶</button>
-        <div class="seek-wrap">
-          <input id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Перемотка трека">
-        </div>
-        <div id="time" class="time">0:00 / 0:00</div>
-      </div>
-
-      <div class="volume">
-        <span aria-hidden="true">VOL</span>
-        <input id="volume" type="range" min="0" max="1" value=".85" step=".01" aria-label="Громкость">
-      </div>
-    </div>
-  </section>
-
-  <footer>2015</footer>
-</main>
+<audio id="audio" preload="metadata" src="./music.mp3"></audio>
 
 <script>
-(() => {
-  const audio = document.getElementById('audio');
-  const play = document.getElementById('play');
-  const seek = document.getElementById('seek');
-  const volume = document.getElementById('volume');
-  const time = document.getElementById('time');
+const audio = document.getElementById('audio');
+const play = document.getElementById('play');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+const bar = document.getElementById('bar');
+const fill = document.getElementById('fill');
+const cur = document.getElementById('cur');
+const dur = document.getElementById('dur');
 
-  audio.volume = Number(volume.value);
+const format = s => {
+  if (!Number.isFinite(s)) return '0:00';
+  const m = Math.floor(s/60);
+  const sec = Math.floor(s%60).toString().padStart(2,'0');
+  return `${m}:${sec}`;
+};
 
-  const fmt = (seconds) => {
-    if (!Number.isFinite(seconds)) return '0:00';
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
-  };
+function render(){
+  cur.textContent = format(audio.currentTime);
+  dur.textContent = format(audio.duration);
+  fill.style.width = audio.duration ? `${(audio.currentTime/audio.duration)*100}%` : '0%';
+}
 
-  const updateTime = () => {
-    const duration = audio.duration || 0;
-    time.textContent = `${fmt(audio.currentTime)} / ${fmt(duration)}`;
-    seek.value = duration ? Math.round((audio.currentTime / duration) * 1000) : 0;
-  };
-
-  play.addEventListener('click', async () => {
-    if (audio.paused) {
-      try {
-        await audio.play();
-      } catch (err) {
-        console.error('Не удалось запустить музыку:', err);
-      }
-    } else {
-      audio.pause();
-    }
-  });
-
-  audio.addEventListener('play', () => { play.textContent = 'Ⅱ'; });
-  audio.addEventListener('pause', () => { play.textContent = '▶'; });
-  audio.addEventListener('ended', () => {
-    play.textContent = '▶';
-    seek.value = 0;
-  });
-
-  audio.addEventListener('loadedmetadata', updateTime);
-  audio.addEventListener('timeupdate', updateTime);
-
-  seek.addEventListener('input', () => {
-    if (!audio.duration) return;
-    audio.currentTime = (Number(seek.value) / 1000) * audio.duration;
-  });
-
-  volume.addEventListener('input', () => {
-    audio.volume = Number(volume.value);
-  });
-
-  audio.addEventListener('error', () => {
-    console.error('music.mp3 не удалось загрузить. Проверь наличие файла рядом с index.html.');
-  });
-})();
+play.addEventListener('click', async () => {
+  if(audio.paused){
+    try{ await audio.play(); }
+    catch(e){ console.error('Не удалось воспроизвести music.mp3', e); }
+  }else{
+    audio.pause();
+  }
+});
+audio.addEventListener('play',()=>{playIcon.style.display='none';pauseIcon.style.display='block';});
+audio.addEventListener('pause',()=>{playIcon.style.display='block';pauseIcon.style.display='none';});
+audio.addEventListener('loadedmetadata',render);
+audio.addEventListener('timeupdate',render);
+audio.addEventListener('ended',()=>{playIcon.style.display='block';pauseIcon.style.display='none';});
+bar.addEventListener('click', e => {
+  if(!audio.duration) return;
+  const r=bar.getBoundingClientRect();
+  audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration;
+});
 </script>
 </body>
 </html>
