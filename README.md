@@ -1,0 +1,1 @@
+GitHub Pages: загрузить index.html, music.mp3 и watch.png в корень main; Pages → Deploy from a branch → main → /(root).

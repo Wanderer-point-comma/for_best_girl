@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171512">
+<title>Сентябрь</title>
+<style>
+  :root{
+    --ink:#eee9e1;
+    --muted:#aaa39a;
+    --paper:#d7cec2;
+    --black:#11100f;
+    --brown:#4a3930;
+    --wine:#5c2024;
+    --line:rgba(238,233,225,.17);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    min-height:100vh;
+    color:var(--ink);
+    background:
+      radial-gradient(70% 55% at 76% 14%, rgba(112,42,43,.30), transparent 62%),
+      radial-gradient(55% 70% at 8% 80%, rgba(93,68,49,.26), transparent 66%),
+      linear-gradient(125deg,#11100f 0%,#1b1816 48%,#28201b 100%);
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.16;
+    background:
+      repeating-linear-gradient(92deg, transparent 0 5px, rgba(255,255,255,.045) 6px, transparent 7px 12px),
+      repeating-radial-gradient(circle at 20% 30%, rgba(255,255,255,.16) 0 1px, transparent 1px 4px);
+    mix-blend-mode:soft-light;
+    z-index:10;
+  }
+
+  main{
+    width:min(1180px, calc(100% - 48px));
+    margin:0 auto;
+    padding:58px 0 44px;
+  }
+
+  .topline{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#c5beb5;
+  }
+
+  .year{color:#e9dfd5}
+  .mark{
+    width:8px;height:8px;border-radius:50%;
+    background:#9b4545;
+    box-shadow:0 0 18px rgba(155,69,69,.55);
+  }
+
+  .story{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(300px,430px);
+    gap:clamp(42px,7vw,96px);
+    align-items:center;
+    min-height:610px;
+    padding:64px 0 70px;
+  }
+
+  .copy{
+    max-width:720px;
+  }
+
+  .copy h1{
+    margin:0 0 34px;
+    max-width:680px;
+    font-size:clamp(40px,5.2vw,76px);
+    line-height:.96;
+    font-weight:400;
+    letter-spacing:-.045em;
+    color:#f1ebe3;
+  }
+
+  .copy p{
+    margin:0 0 22px;
+    max-width:690px;
+    font-size:clamp(18px,1.65vw,23px);
+    line-height:1.62;
+    color:#d8d0c7;
+  }
+
+  .copy p:last-child{margin-bottom:0}
+  .accent{
+    color:#f0e8df;
+    text-decoration:underline;
+    text-decoration-color:rgba(155,69,69,.7);
+    text-decoration-thickness:1px;
+    text-underline-offset:6px;
+  }
+
+  .watch-stage{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:560px;
+  }
+
+  .watch-stage::before{
+    content:"";
+    position:absolute;
+    width:84%;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:
+      radial-gradient(circle, rgba(126,82,63,.20), rgba(90,32,36,.10) 42%, transparent 70%);
+    filter:blur(22px);
+  }
+
+  .watch{
+    position:relative;
+    z-index:1;
+    width:min(100%,390px);
+    height:auto;
+    filter:
+      drop-shadow(0 30px 26px rgba(0,0,0,.55))
+      drop-shadow(0 5px 8px rgba(0,0,0,.45));
+  }
+
+  .music{
+    border-top:1px solid var(--line);
+    padding-top:28px;
+    display:grid;
+    grid-template-columns:1fr minmax(360px,620px);
+    gap:48px;
+    align-items:end;
+  }
+
+  .credits{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:12px 22px;
+  }
+
+  .artist{
+    font-family:Arial, sans-serif;
+    font-size:clamp(22px,2.3vw,34px);
+    font-weight:700;
+    letter-spacing:.08em;
+  }
+
+  .producer{
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:#aaa39a;
+  }
+
+  .track{
+    margin-top:10px;
+    font-size:clamp(24px,2.4vw,36px);
+    line-height:1;
+    color:#eee8df;
+  }
+
+  .player{
+    width:100%;
+    padding:18px 0 2px;
+  }
+
+  .controls{
+    display:grid;
+    grid-template-columns:48px 1fr auto;
+    gap:14px;
+    align-items:center;
+  }
+
+  button{
+    border:1px solid rgba(238,233,225,.34);
+    background:rgba(17,16,15,.46);
+    color:#eee9e1;
+    cursor:pointer;
+    transition:.2s ease;
+  }
+
+  button:hover{
+    background:rgba(155,69,69,.22);
+    border-color:rgba(238,233,225,.62);
+  }
+
+  .play{
+    width:48px;height:48px;border-radius:50%;
+    display:grid;place-items:center;
+    font-size:18px;
+  }
+
+  .seek-wrap{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  input[type="range"]{
+    appearance:none;
+    width:100%;
+    height:2px;
+    background:rgba(238,233,225,.24);
+    cursor:pointer;
+    accent-color:#b35b5d;
+  }
+
+  input[type="range"]::-webkit-slider-thumb{
+    appearance:none;
+    width:12px;height:12px;border-radius:50%;
+    background:#eee9e1;
+    border:0;
+  }
+
+  input[type="range"]::-moz-range-thumb{
+    width:12px;height:12px;border-radius:50%;
+    background:#eee9e1;
+    border:0;
+  }
+
+  .time{
+    min-width:92px;
+    text-align:right;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:#aaa39a;
+  }
+
+  .volume{
+    margin-top:14px;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:9px;
+  }
+
+  .volume span{
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    color:#8f8982;
+  }
+
+  .volume input{max-width:130px}
+
+  footer{
+    padding-top:34px;
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:#6f6963;
+  }
+
+  @media (max-width:820px){
+    main{width:min(100% - 30px,680px);padding-top:28px}
+    .story{
+      grid-template-columns:1fr;
+      gap:20px;
+      min-height:auto;
+      padding:48px 0 52px;
+    }
+    .watch-stage{
+      order:-1;
+      min-height:390px;
+    }
+    .watch{width:min(72vw,340px)}
+    .music{
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+  }
+
+  @media (max-width:520px){
+    .topline{letter-spacing:.18em}
+    .copy h1{font-size:40px;margin-bottom:25px}
+    .copy p{font-size:18px;line-height:1.58}
+    .watch-stage{min-height:330px}
+    .controls{grid-template-columns:48px 1fr}
+    .time{grid-column:2;text-align:left;margin-top:-5px}
+    .volume{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="topline">
+    <span class="year">2015</span>
+    <span class="mark" aria-hidden="true"></span>
+  </div>
+
+  <section class="story" aria-label="Текст">
+    <article class="copy">
+      <h1>Чувства, которым ещё не даны имена</h1>
+
+      <p>Иногда всё меняется настолько тихо, что невозможно назвать тот самый момент, когда что-то перестаёт быть прежним. Вчера человек просто существует где-то рядом с твоей жизнью, а сегодня его отсутствие уже ощущается странно пустым.</p>
+
+      <p>Некоторые чувства и вовсе не приходят словами. Они появляются в мелочах: в слишком долгом взгляде, в случайно сохранённой интонации, в желании задержать мгновение ещё хотя бы на несколько секунд.</p>
+
+      <p>И где-то среди этих незаметных перемен возникает то самое ощущение, которое трудно объяснить даже самому себе: <span class="accent">я бежал за твоим запахом как в новый сентябрь</span>, словно боялся, что он растворится раньше, чем ты успеешь его запомнить.</p>
+
+      <p>Наверное, именно поэтому таким чувствам ещё рано давать имя. Пока они существуют где-то между «просто» и чем-то гораздо большим — там, где одно случайное мгновение уже способно изменить смысл всего, что было до него.</p>
+    </article>
+
+    <div class="watch-stage">
+      <img class="watch" src="./watch.png" alt="Часы">
+    </div>
+  </section>
+
+  <section class="music" aria-label="Музыка">
+    <div class="credits">
+      <div>
+        <div class="artist">PHARAOH</div>
+        <div class="track">Беги от меня</div>
+      </div>
+      <div class="producer">DOLOR</div>
+    </div>
+
+    <div class="player">
+      <audio id="audio" preload="metadata" src="./music.mp3"></audio>
+
+      <div class="controls">
+        <button id="play" class="play" type="button" aria-label="Включить или поставить на паузу">▶</button>
+        <div class="seek-wrap">
+          <input id="seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Перемотка трека">
+        </div>
+        <div id="time" class="time">0:00 / 0:00</div>
+      </div>
+
+      <div class="volume">
+        <span aria-hidden="true">VOL</span>
+        <input id="volume" type="range" min="0" max="1" value=".85" step=".01" aria-label="Громкость">
+      </div>
+    </div>
+  </section>
+
+  <footer>2015</footer>
+</main>
+
+<script>
+(() => {
+  const audio = document.getElementById('audio');
+  const play = document.getElementById('play');
+  const seek = document.getElementById('seek');
+  const volume = document.getElementById('volume');
+  const time = document.getElementById('time');
+
+  audio.volume = Number(volume.value);
+
+  const fmt = (seconds) => {
+    if (!Number.isFinite(seconds)) return '0:00';
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  const updateTime = () => {
+    const duration = audio.duration || 0;
+    time.textContent = `${fmt(audio.currentTime)} / ${fmt(duration)}`;
+    seek.value = duration ? Math.round((audio.currentTime / duration) * 1000) : 0;
+  };
+
+  play.addEventListener('click', async () => {
+    if (audio.paused) {
+      try {
+        await audio.play();
+      } catch (err) {
+        console.error('Не удалось запустить музыку:', err);
+      }
+    } else {
+      audio.pause();
+    }
+  });
+
+  audio.addEventListener('play', () => { play.textContent = 'Ⅱ'; });
+  audio.addEventListener('pause', () => { play.textContent = '▶'; });
+  audio.addEventListener('ended', () => {
+    play.textContent = '▶';
+    seek.value = 0;
+  });
+
+  audio.addEventListener('loadedmetadata', updateTime);
+  audio.addEventListener('timeupdate', updateTime);
+
+  seek.addEventListener('input', () => {
+    if (!audio.duration) return;
+    audio.currentTime = (Number(seek.value) / 1000) * audio.duration;
+  });
+
+  volume.addEventListener('input', () => {
+    audio.volume = Number(volume.value);
+  });
+
+  audio.addEventListener('error', () => {
+    console.error('music.mp3 не удалось загрузить. Проверь наличие файла рядом с index.html.');
+  });
+})();
+</script>
+</body>
+</html>
